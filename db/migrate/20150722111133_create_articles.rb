@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.text :text
       t.references :user, index: true
-       t.timestamps null: false
+      t.timestamps null: false
     end
   end
 end

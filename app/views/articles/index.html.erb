@@ -4,7 +4,7 @@
 
 <h1>Articles</h1>
 
-<p>
+<p>     
 	<% if current_user %>
 		<%= link_to 'New article', new_user_article_path(current_user.id) %>
 		<%= link_to 'My articles', user_myarticles_path(current_user.id) %>
