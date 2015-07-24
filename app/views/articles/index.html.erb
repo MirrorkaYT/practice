@@ -3,10 +3,10 @@
 </p>
 
 <h1>Articles</h1>
-<p>
 
-	<%= link_to 'New article', new_user_article_path %>
+<p>
 	<% if current_user %>
+		<%= link_to 'New article', new_user_article_path(current_user.id) %>
 		<%= link_to 'My articles', user_myarticles_path(current_user.id) %>
 	<% end %>
 </p>
@@ -18,16 +18,16 @@
 	</tr>
 
 	<% @articles.order(:id).each do |article| %>
-	 <tr>
-	 	<td><%= User.find(article.user_id).nickname %></td>
-	 	<td><%= article.title %></td>
-	 	<td><%= article.text %></td>
-	 	<td><%= link_to 'Show', user_article_path(current_user.id, article) %>
-	 	<% if current_user && article.user_id == current_user.id %>
-	 		<td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
-	 		<td><%= link_to 'Del', user_article_path(current_user.id, article), method: 'delete', data: { confirm: 'Are you sure?' } %>  
-	 	<% end %>
-	 </tr>
+		<tr>
+			<td><%= User.find(article.user_id).nickname %></td>
+			<td><%= article.title %></td>
+			<td><%= article.text %></td>
+			<td><%= link_to 'Show', user_article_path(article.user_id, article) %>
+			<% if current_user && article.user_id == current_user.id %>
+				<td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
+				<td><%= link_to 'Del', user_article_path(current_user.id, article), method: 'delete', data: { confirm: 'Are you sure?' } %>  
+			<% end %>
+		</tr>
 	<% end %>
 </table>
 
