@@ -1,0 +1,26 @@
+<p>
+	<%= link_to 'Back', home_path %>
+</p>
+
+<h1>My Articles</h1>
+<p>
+
+	<%= link_to 'New article', new_user_article_path %>
+	
+</p>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Text</th>
+	</tr>
+
+	<% current_user.articles.each do |article| %>
+	 <tr>
+	 	<td><%= article.title %></td>
+	 	<td><%= article.text %></td>
+	 	<td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
+	 	<td><%= link_to 'Show', user_article_path(current_user.id ,article) %>
+	 	<td><%= link_to 'Del', user_article_path(current_user.id,article), method: 'delete', data: { confirm: 'Are you sure?' } %>  
+	 </tr>
+	<% end %>
+</table>

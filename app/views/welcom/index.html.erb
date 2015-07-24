@@ -1,0 +1,14 @@
+<h3>Hello, if you want to post something - sign in or sign up, please</h3>
+<% if current_user %>
+	<%= link_to 'create article', new_user_article_path(current_user.id) %>
+	<%= link_to 'show article', user_articles_path(current_user.id) %>
+<% else %>
+	  <%= link_to 'show articles', user_articles_path(current_user.id) %>
+<% end %>
+  
+
+  
+
+
+
+  
