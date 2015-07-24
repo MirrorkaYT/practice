@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 			if @article.save
 			    redirect_to user_article_path(current_user.id, @article)
 			  else
-			    render 'new'
+			  	render 'new'
 			  end
 	end
 	
