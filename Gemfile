@@ -43,5 +43,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+
+  gem 'bootstrap-sass'
+  gem 'bootstrap-x-editable-rails'
+
 end
 

@@ -12,22 +12,11 @@
 </p>
 <table>
 	<tr>
-		<th>Author</th>
+		<th><%= link_to 'Author', user_sort_author_path(current_user.id), remote: true, id: "one" %></th>
 		<th>Title</th>
 		<th>Text</th>
 	</tr>
-
-	<% @articles.order(:id).each do |article| %>
-		<tr>
-			<td><%= User.find(article.user_id).nickname %></td>
-			<td><%= article.title %></td>
-			<td><%= article.text %></td>
-			<td><%= link_to 'Show', user_article_path(article.user_id, article) %>
-			<% if current_user && article.user_id == current_user.id %>
-				<td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
-				<td><%= link_to 'Del', user_article_path(current_user.id, article), method: 'delete', data: { confirm: 'Are you sure?' } %>  
-			<% end %>
-		</tr>
-	<% end %>
+	<%= render 'article' %>
+	
 </table>
 

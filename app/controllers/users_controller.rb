@@ -11,10 +11,13 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			redirect_to home_path, notice: 'Thank you for registration! '+@user.email
-			session[:user_id] = @user.id
 		else 
 			render 'new'
 		end
+	end
+
+	def myarticles
+		
 	end
 	
 	private

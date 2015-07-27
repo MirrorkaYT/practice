@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users do
     get 'myarticles' => 'users#myarticles'
+    get 'sort_author' => 'articles#sort_author'
     resources :articles
   end
   get 'articles' => 'articles#index'

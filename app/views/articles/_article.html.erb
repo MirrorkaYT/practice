@@ -1,0 +1,16 @@
+<% @articles.each do |article| %>
+		<tr>
+			<td><%= User.find(article.user_id).nickname %></td>
+			<td>
+          <a href="#" data-xeditable="true" data-pk="<%= article.id %>" data-model="article" data-name="title" data-url="<%= user_article_url(current_user.id, article) %>" data-title="Enter title">
+            <%= article.title %>
+          </a>
+        </td>
+			<td><%= article.text %></td>
+			<td><%= link_to 'Show', user_article_path(article.user_id, article) %>
+			<% if current_user && article.user_id == current_user.id %>
+				<td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
+				<td><%= link_to 'Del', user_article_path(current_user.id, article), method: 'delete', data: { confirm: 'Are you sure?' } %>  
+			<% end %>
+		</tr>
+	<% end %>
