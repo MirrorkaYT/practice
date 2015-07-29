@@ -15,14 +15,14 @@
       <th style="text-align:center">Due_date</th>
     </tr>
     <% @articles.each do |article| %>
-    	<tr>
-    		<td><%= User.find(article.user_id).nickname %></td>
-    		<td>
+      <tr>
+        <td><%= User.find(article.user_id).nickname %></td>
+        <td>
           <a href="#" id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.title %>
           </a>
         </td>
-    		<td>
+        <td>
           <a href="#" id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="text" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.text %>
           </a>
@@ -39,15 +39,15 @@
             <%= article.date || Date.today %>
           </div>
         </td>
-    		<td><%= link_to 'Show', user_article_path(article.user_id, article) %></td>
-    		  <% if current_user && article.user_id == current_user.id %>
-    				<td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
-    				<td>
+        <td><%= link_to 'Show', user_article_path(article.user_id, article) %></td>
+          <% if current_user && article.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
+            <td>
               <%= link_to 'Del', user_article_path(current_user.id, article), remote: true ,
               data: { confirm: 'are you sure?'}, method: :delete %>
             </td>
-    		  <% end %>
-    	</tr>
+          <% end %>
+      </tr>
     <% end %>
   </table>
 </p>

@@ -4,31 +4,31 @@ class ArticlesController < ApplicationController
 
     respond_to :html, :js
 
-	def index
+  def index
 
-		@articles = Article.order(sort_column + " " + sort_direction)
+    @articles = Article.order(sort_column + " " + sort_direction)
 
 
-	end
-	def show
-			@article = Article.find(params[:id])
+  end
+  def show
+      @article = Article.find(params[:id])
 
-	end
+  end
 
-	def new
-		if !current_user
-			redirect_to home_url, notice: 'you are not logged in. Log in, please'
-		end
+  def new
+    if !current_user
+      redirect_to home_url, notice: 'you are not logged in. Log in, please'
+    end
 
-		@article = Article.new
-	end
+    @article = Article.new
+  end
 
-	def edit
-		@article = Article.find(params[:id])
-	end
+  def edit
+    @article = Article.find(params[:id])
+  end
 
-	def create
-			@article = current_user.articles.new(article_params)
+  def create
+      @article = current_user.articles.new(article_params)
 
       @article.priority = 1
     respond_to do |format|
@@ -42,11 +42,11 @@ class ArticlesController < ApplicationController
         format.js {}
       end
     end
-	end
-	
-	def update
-		@article = Article.find(params[:id])
-		respond_to do |format|
+  end
+  
+  def update
+    @article = Article.find(params[:id])
+    respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to user_article_path(current_user.id, @article), notice: 'Post was successfully updated.' }
         format.json { head :no_content }
@@ -56,16 +56,16 @@ class ArticlesController < ApplicationController
       end
     end
 
-	end
+  end
   
-	def destroy
-		@article = Article.find(params[:id])
-  	@article.destroy
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
     
-	end
+  end
 
-	
-	private
+  
+  private
     def all_tasks
       @articles = Article.all
     end
@@ -79,8 +79,8 @@ class ArticlesController < ApplicationController
     def sort_direction
       params[:direction] || "asc"
     end
-		def article_params
-			params.require(:article).permit(:title, :text, :priority, :date)
-		end
+    def article_params
+      params.require(:article).permit(:title, :text, :priority, :date)
+    end
 
 end
