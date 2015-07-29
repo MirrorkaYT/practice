@@ -4,19 +4,24 @@
 
 <h1>Articles</h1>
 
-<p>     
+<p>
 	<% if current_user %>
 		<%= link_to 'New article', new_user_article_path(current_user.id) %>
 		<%= link_to 'My articles', user_myarticles_path(current_user.id) %>
 	<% end %>
 </p>
+
+
+<div id="all-articles">
 <table>
-	<tr>
-		<th><%= link_to 'Author', user_sort_author_path(current_user.id), remote: true, id: "one" %></th>
-		<th>Title</th>
-		<th>Text</th>
-	</tr>
 	<%= render 'article' %>
-	
 </table>
+</div>
+<div id="new-article">
+  <%= link_to 'new', new_user_article_path(current_user.id), remote: true %>
+</div>
+
+<div id="formid">
+</div>
+
 

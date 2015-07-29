@@ -4,6 +4,8 @@ class CreateArticles < ActiveRecord::Migration
 
       t.string :title
       t.text :text
+      t.string :date
+      t.integer :priority
       t.references :user, index: true
       t.timestamps null: false
     end

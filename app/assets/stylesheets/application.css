@@ -16,3 +16,14 @@
  *= require_tree .
  */
 
+th .asc{
+  background-image: url(/images/upArrow.jpg);
+}
+
+table{
+  text-align: center;
+  width: 40%;
+}
+.pretty th .asc{
+  background-image: url("assets/images/upArrow.jpg");
+}

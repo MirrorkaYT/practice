@@ -1,10 +1,18 @@
 class ArticlesController < ApplicationController
+  helper_method :sort_column, :sort_direction
+      before_action :all_tasks, only: [:create, :update, :destroy]
+
+    respond_to :html, :js
 
 	def index
-		@articles = Article.all
+
+		@articles = Article.order(sort_column + " " + sort_direction)
+
+
 	end
 	def show
 			@article = Article.find(params[:id])
+
 	end
 
 	def new
@@ -22,14 +30,16 @@ class ArticlesController < ApplicationController
 	def create
 			@article = current_user.articles.new(article_params)
 
-
+      @article.priority = 1
     respond_to do |format|
       if @article.save
         format.html { redirect_to user_article_path(current_user.id, @article), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: user_article_path(current_user.id, @article) }
+        format.js {}
       else
         format.html { render action: 'new' }
         format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
 	end
@@ -47,30 +57,30 @@ class ArticlesController < ApplicationController
     end
 
 	end
+  
 	def destroy
 		@article = Article.find(params[:id])
-  		@article.destroy
- 		
-  		redirect_to user_articles_path
-  		
+  	@article.destroy
+    
 	end
-	def sort_author
-		@articles = Article.all.order(:id)
-		 respond_to do |format|
-		 	format.html { redirect_to user_articles_path(current_user.id) }
-			format.js {}
-		end
-	end
-	def sort_text
-		@articles = Article.all.order(:text)
-	end
-	def sort_title
-		@articles = Article.all.order(:title)
-	end
-	private
 
+	
+	private
+    def all_tasks
+      @articles = Article.all
+    end
+
+
+
+
+    def sort_column
+      params[:sort] || "id"
+    end
+    def sort_direction
+      params[:direction] || "asc"
+    end
 		def article_params
-			params.require(:article).permit(:title, :text)
+			params.require(:article).permit(:title, :text, :priority, :date)
 		end
 
 end

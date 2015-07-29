@@ -11,8 +11,51 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap3-editable/bootstrap-editable
+
 //= require_tree .
+
+var setXeditable;
+
+$.fn.editable.defaults.mode = 'inline';
+
+setXeditable = function() {
+  return $("[data-xeditable=true]").each(function() {
+    return $(this).editable({
+      ajaxOptions: {
+        type: "PUT",
+        dataType: "json"
+      },
+      params: function(params) {
+        var railsParams;
+        railsParams = {};
+        railsParams[$(this).data("model")] = {};
+        railsParams[$(this).data("model")][params.name] = params.value;
+        return railsParams;
+      }
+    });
+  });
+};
+setXeditable()
+
+var one = function(argg){
+  t=argg
+}
+
+var setArrowDirection = function(arg){
+  if(t == 'priority')
+    d = document.getElementById("priority")
+  else
+    d = document.getElementById("due_date")
+
+  if(arg == "asc"){
+    d.className = "glyphicon glyphicon-arrow-down active"
+  }
+  else{
+    d.className = "glyphicon glyphicon-arrow-up active"
+  }
+}
