@@ -1,44 +1,48 @@
-
-
-<span onclick="one('priority')" ><%= sortable "priority", "Priority" %><span id="priority"></span></span>
-<span onclick="one('due_date')" ><%= sortable "date", "due_date" %><span id="due_date" ></span></span>
-
-
-
+<div id="Unreadd_<%= article.id %>">
 <p>
-  <table>
-    <tr>
-      <th style="text-align:center">Author</th>
-      <th style="text-align:center">Title</th>
-      <th style="text-align:center">Text</th>
-      <th style="text-align:center">Priority</th>
-      <th style="text-align:center">Due_date</th>
-    </tr>
-    <% @articles.each do |article| %>
+    <table>
       <tr>
-        <td><%= User.find(article.user_id).nickname %></td>
+        <th style="text-align:left">Title:</th>
         <td>
-          <a href="#" id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+          <a id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.title %>
           </a>
         </td>
+      </tr>
+    </table>
+    
+        
+    <table>
+      <tr>
+        <th style="text-align:left">Text:</th>
         <td>
-          <a href="#" id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="text" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+          <a id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="text" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.text %>
           </a>
         </td>
+      </tr>
+    </table>
+    <table>
+      <tr class="tabl">
+        <th style="text-align:left">Author:</th>
+          <td><%= User.find(article.user_id).nickname %>|</td>
+        <th style="text-align:left">Priority:</th>
         <td>
-          <a href="#" data-xeditable="true" data-inputclass="prior" data-showbuttons="false"
-            data-pk="article" data-model="article" data-name="priority" data-url="/users/<%=
-            current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+          <a data-xeditable="true" data-inputclass="prior" data-showbuttons="false" data-type="text" data-tpl="<input type='text' style='width: 75px' style='padding: 0px'>" data-pk="article" data-model="article" data-name="priority" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.priority %>
+          </a>|
+        </td>
+        <th style="text-align:left">Due_date:</th>
+        <td>
+          <a id="link" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+            <%= article.date || Date.today %>
           </a>
         </td>
         <td>
-          <div id="link" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
-            <%= article.date || Date.today %>
-          </div>
+          <input type="checkbox" id="check_<%= article.id %>" onclick="completet(<%= article.id %>)" value="<%= article.completed %>" data-path='<%=user_article_path(current_user.id, article) %>'  data-id='<%= article.id%>' <%= checked %>>
         </td>
+      </tr>
+    </table>
         <td><%= link_to 'Show', user_article_path(article.user_id, article) %></td>
           <% if current_user && article.user_id == current_user.id %>
             <td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
@@ -48,6 +52,7 @@
             </td>
           <% end %>
       </tr>
-    <% end %>
+      
   </table>
 </p>
+ </div>

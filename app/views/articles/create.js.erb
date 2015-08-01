@@ -1,4 +1,4 @@
 $('form').remove()
-$("#all-articles").html("<%= j render 'article' %>")
 $("#new-article").show()
+$("#Unread").append("<%= j render partial: 'article', locals: {article: @artIncompl.last(), checked: ""} %>")
 setXeditable()

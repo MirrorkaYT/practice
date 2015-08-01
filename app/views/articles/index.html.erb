@@ -10,18 +10,33 @@
     <%= link_to 'My articles', user_myarticles_path(current_user.id) %>
   <% end %>
 </p>
+<p>
+  <h2>Unread</h2>
+</p>
+
+
+<%= sortable "priority", "Priority" %><span id="priority"></span> |
+<%= sortable "date", "due_date" %><span id="date" ></span>
 
 
 <div id="all-articles">
-<table>
-  <%= render 'article' %>
-</table>
 </div>
+<div class="articles" id="Unread">
+<% @artIncompl.each do |article| %>
+  <%= render partial: 'article', locals: {article: article, checked: ""} %>
+<% end %>
+</div>
+
 <div id="new-article">
   <%= link_to 'new', new_user_article_path(current_user.id), remote: true %>
 </div>
 
 <div id="formid">
 </div>
-
+<h2>Read</h2>
+  <div class="articles" id="Read">
+    <% @artCompl.each do |article| %>
+      <%= render partial: 'article', locals: {article: article, checked: "checked"} %>
+    <% end %>
+  </div>
 

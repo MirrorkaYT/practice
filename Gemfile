@@ -49,10 +49,12 @@ group :development, :test do
   gem 'rspec-collection_matchers'
 
 end
+gem 'devise'
+gem 'better_errors'
 gem 'pry'
   gem 'bootstrap-sass'
   gem 'bootstrap-x-editable-rails'
-  gem 'jquery-turbolinks'
   gem 'responders'
   gem 'jquery-ui-rails'
+  gem 'jquery-turbolinks'
 
