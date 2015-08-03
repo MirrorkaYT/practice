@@ -5,3 +5,15 @@
 .some_class{
   width: 100px;
 }
+.editing{
+  display: none;
+}
+.article:hover{
+  .editing{
+  display: block;
+  }
+}
+.edits{
+  border-bottom: none;
+  color: black;
+}

@@ -19,6 +19,7 @@ setXeditable = function() {
     });
   });
 };
+$(document).ready(setXeditable)
 
 setXeditable()
 
@@ -31,7 +32,6 @@ function setArrowDirection(dir, sort ){
 }
 
 function completet(arg){
-  id = id + 1
   var nam = document.getElementById("check_"+arg)
       id = $(nam).attr('data-id')
       value = $(nam).is(":checked")
@@ -52,3 +52,4 @@ function completet(arg){
         data: { article: {id: id, completed: value}}
       })
     }
+

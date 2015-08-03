@@ -1,3 +1,4 @@
+<div id= "content">
 <p>
   <%= link_to 'Back', home_path %>
 </p>
@@ -14,11 +15,9 @@
   <h2>Unread</h2>
 </p>
 
-
-<%= sortable "priority", "Priority" %><span id="priority"></span> |
-<%= sortable "date", "due_date" %><span id="date" ></span>
-
-
+<div id="Sort">
+<%= render "sort" %>
+</div>
 <div id="all-articles">
 </div>
 <div class="articles" id="Unread">
@@ -40,3 +39,4 @@
     <% end %>
   </div>
 
+</div>

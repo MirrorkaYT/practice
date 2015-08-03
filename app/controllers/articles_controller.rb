@@ -1,14 +1,11 @@
 class ArticlesController < ApplicationController
   helper_method :sort_column, :sort_direction
       before_action :all_tasks
-      
 
 
   def index
-    @artCompl=Article.where(completed: true)
-    @artIncompl=Article.where(completed: false)
-
-
+    @artCompl=Article.where(completed: true).order("priority" + ' ' + "asc")
+    @artIncompl=Article.where(completed: false).order(sort_column + ' ' + sort_direction)
   end
 
   def show
@@ -29,8 +26,15 @@ class ArticlesController < ApplicationController
 
   def create
       @article = current_user.articles.new(article_params)
+      n=1
+      loop do
+        unless Article.find_by priority: n
+          @article.priority=n
+          break
+        end
+        n+=1
+      end
 
-      @article.priority = 1
     respond_to do |format|
       if @article.save
         format.html { redirect_to user_article_path(current_user.id, @article), notice: 'Post was successfully created.' }
@@ -73,6 +77,7 @@ class ArticlesController < ApplicationController
   
   private
     def all_tasks
+      @articles=Article.all
       @artCompl=Article.where(completed: true)
     @artIncompl=Article.where(completed: false)
     end

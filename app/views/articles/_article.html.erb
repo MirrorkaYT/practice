@@ -1,10 +1,10 @@
-<div id="Unreadd_<%= article.id %>">
+<div id="Unreadd_<%= article.id %>" class="article">
 <p>
     <table>
       <tr>
         <th style="text-align:left">Title:</th>
         <td>
-          <a id="link" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+          <a id="link" class="edits" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.title %>
           </a>
         </td>
@@ -43,6 +43,7 @@
         </td>
       </tr>
     </table>
+      <div class="editing">
         <td><%= link_to 'Show', user_article_path(article.user_id, article) %></td>
           <% if current_user && article.user_id == current_user.id %>
             <td><%= link_to 'Edit', edit_user_article_path(current_user.id, article) %></td>
@@ -50,6 +51,7 @@
               <%= link_to 'Del', user_article_path(current_user.id, article), remote: true ,
               data: { confirm: 'are you sure?'}, method: :delete %>
             </td>
+      </div>
           <% end %>
       </tr>
       
