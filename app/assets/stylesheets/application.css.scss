@@ -17,12 +17,17 @@
  */
 
 html {
-  background-color: #CFCFCF;
-  margin: 5% 15% 5% 15%;
+  background-color: #30FFD0;
+  margin: 2% 15% 2% 15%;
 }
-body{
-  padding: 0px 45px 0px 45px
-}
+
 .sort{
   float: right;
+}
+html body{
+  padding: 0px 400px 0px 45px;
+  background-color: #7A79DA;
+}
+html a {
+  color: #445B50;
 }

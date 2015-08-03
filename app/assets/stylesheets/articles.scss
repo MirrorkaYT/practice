@@ -8,7 +8,8 @@
 .editing{
   display: none;
 }
-.article:hover{
+
+.articleObj:hover{
   .editing{
   display: block;
   }
@@ -23,8 +24,29 @@
 
   margin: 15px 10% 15px 10%;
   padding: 5px 5px 5px 5px;
-  background-color: #FFA500;
+  background-color: #2EFF23;
+  border-radius: 10px;
 }
 .title_text{
   text-align: center;
+}
+
+.article_info{
+  margin: 0px 10% 0px 10%;
+  padding: 0px 5px 0px 5px;
+  background-color: #40E0D0;
+  text-align: center;
+}
+.articleObj{
+  border-radius: 15px;
+  color: #445B50;
+  padding: 15px;
+  margin-bottom: 25px;
+  background-color: #30FFD0;
+}
+
+
+.sort{
+  padding-right: 15px;
+  padding-top: 15px;
 }

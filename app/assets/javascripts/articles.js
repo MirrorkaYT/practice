@@ -37,8 +37,8 @@ function completet(arg){
       value = $(nam).is(":checked")
       path = $(nam).attr('data-path')
       console.log($(nam).attr('data-id'))
-      console.log($(nam).closest("div").remove())
-       html=$(nam).closest("div")
+      console.log($(nam).closest(".articleObj").remove())
+      html=$(nam).closest(".articleObj")
 
        if(value)
          $('#Read').last().after(html)
