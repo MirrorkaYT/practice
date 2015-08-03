@@ -32,6 +32,7 @@
 }
 
 .article_info{
+  font-weight: bold;
   margin: 0px 10% 0px 10%;
   padding: 0px 5px 0px 5px;
   background-color: #40E0D0;
@@ -42,11 +43,25 @@
   color: #445B50;
   padding: 15px;
   margin-bottom: 25px;
+  margin-right: 350px;
   background-color: #30FFD0;
 }
 
-
-.sort{
+.sorting{
+  font-weight: bold;
   padding-right: 15px;
   padding-top: 15px;
+}
+.new_article{
+  float: right;
+  margin-left: 100px;
+}
+.separator .separator_line {
+    height: 21px;
+    margin-left: 0px;
+    width: 720px;
+    border-bottom: 1px solid #239623;
+}
+.separator {
+  float: right;
 }

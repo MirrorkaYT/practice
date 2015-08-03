@@ -11,27 +11,28 @@
     <%= link_to 'My articles', user_myarticles_path(current_user.id) %>
   <% end %>
 </p>
-<p>
-  <h2>Unread</h2>
-</p>
+<div class="new_article">
+  <%= link_to 'new', new_user_article_path(current_user.id), remote: true %>
+</div>
 
-<div id="Sort">
-<%= render "sort" %>
-</div>
-<div id="all-articles">
-</div>
+  <h2>Unread</h2>
+<span class="sorting">
+  <%= render "sort" %>
+</span>
+
 <div class="articles" id="Unread">
+  
 <% @artIncompl.each do |article| %>
   <%= render partial: 'article', locals: {article: article, checked: ""} %>
 <% end %>
 </div>
 
-<div id="new-article">
-  <%= link_to 'new', new_user_article_path(current_user.id), remote: true %>
-</div>
-
 <div id="formid">
 </div>
+<div class="separator">
+    
+    <div class="separator_line"></div>
+  </div>
 <h2>Read</h2>
   <div class="articles" id="Read">
     <% @artCompl.each do |article| %>

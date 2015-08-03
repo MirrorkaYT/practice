@@ -17,17 +17,19 @@
  */
 
 html {
-  background-color: #30FFD0;
+  background-color: #7D7DF3;
   margin: 2% 15% 2% 15%;
 }
 
-.sort{
-  float: right;
-}
+
 html body{
-  padding: 0px 400px 0px 45px;
-  background-color: #7A79DA;
+  padding: 10px 45px 15px 45px;
+  background-color: #white;
+  color: #333333;
 }
 html a {
   color: #445B50;
+}
+#user_header{
+  float: right;
 }
