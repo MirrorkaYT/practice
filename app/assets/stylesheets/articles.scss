@@ -14,6 +14,17 @@
   }
 }
 .edits{
+  text-decoration: none;
   border-bottom: none;
   color: black;
+}
+.text_content,
+.title_content{
+
+  margin: 15px 10% 15px 10%;
+  padding: 5px 5px 5px 5px;
+  background-color: #FFA500;
+}
+.title_text{
+  text-align: center;
 }
