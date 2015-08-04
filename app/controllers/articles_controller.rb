@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   helper_method :sort_column, :sort_direction
-      before_action :all_tasks
+      before_action :all_tasks, :log_in_confirmation
 
 
   def index
@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to user_article_path(current_user.id, @article), notice: 'Post was successfully created.' }
+        format.html { redirect_to user_articles_path(current_user.id), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: user_article_path(current_user.id, @article) }
         format.js {  }
       else
@@ -76,15 +76,16 @@ class ArticlesController < ApplicationController
 
   
   private
+    def log_in_confirmation
+      if current_user==nil
+        redirect_to new_user_path, notice: "register please!"
+      end
+    end
     def all_tasks
       @articles=Article.all
       @artCompl=Article.where(completed: true)
     @artIncompl=Article.where(completed: false)
     end
-
-
-
-
     def sort_column
       params[:sort] || "priority"
     end
