@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def index
-  end
+
   def new 
     if current_user 
       redirect_to user_articles_path(current_user.id), notice: 'you are logged in already'
