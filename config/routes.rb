@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   get 'articles' => 'articles#index'
   resources :sessions
-   
+  get '*path' => 'articles#index'
 
 
     root 'welcom#index', as: 'home'

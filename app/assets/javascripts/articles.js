@@ -18,6 +18,7 @@ setXeditable = function() {
       }
     });
   });
+  setXeditable()
 };
 $(document).ready(setXeditable)
 
@@ -29,6 +30,7 @@ function setArrowDirection(dir, sort ){
     nam.className = "glyphicon glyphicon-arrow-down active"
   else
     nam.className = "glyphicon glyphicon-arrow-up active"
+  setXeditable()
 }
 
 function completet(arg){
@@ -51,5 +53,7 @@ function completet(arg){
         dataType: "json",
         data: { article: {id: id, completed: value}}
       })
+      setXeditable()
     }
+setXeditable()
 

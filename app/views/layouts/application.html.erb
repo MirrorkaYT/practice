@@ -11,7 +11,9 @@
     <div id='user_header'>
       <% if current_user %>
         Logged in as '<%= current_user.nickname %>'
-        <%= link_to 'Log Out', session_path('current'), method: 'delete' %>  
+        <%= link_to 'Log Out', session_path('current'), method: 'delete' %>|
+        <%= link_to 'Delete', user_path(current_user.id),
+                data: { confirm: 'are you sure?'}, method: 'delete' %>   
       <% else %>
         <%= link_to 'Sign Up', new_user_path %>
         <%= link_to 'Log In', new_session_path %>

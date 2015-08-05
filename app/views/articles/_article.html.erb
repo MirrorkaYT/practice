@@ -34,7 +34,7 @@
             <%= article.priority %>
           </a>| <br>
         <th style="text-align:left">Due_date:</th>
-          <a id="link" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+          <a id="link" class="datepick" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.date || Date.today %>
           </a>
           <div class="editing">

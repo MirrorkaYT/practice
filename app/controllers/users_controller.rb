@@ -15,6 +15,16 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  def destroy
+    current_user.articles.each do |article| 
+      article.destroy
+    end
+    session[:user_id]=nil
+    @user = User.find(params[:id])
+    @user.destroy
+    current_user=nil
+    redirect_to new_user_path
+  end
 
   def myarticles
     
