@@ -11,7 +11,7 @@
 
 .articleObj:hover{
   .editing{
-  display: block;
+    display: block;
   }
 }
 .edits{
@@ -23,7 +23,7 @@
 .title_content{
 
   margin: 15px 10% 15px 10%;
-  padding: 5px 5px 5px 5px;
+  padding: 3px 5px 3px 5px;
   background-color: #2EFF23;
 }
 .title_text{
@@ -36,13 +36,19 @@
   padding: 0px 5px 0px 5px;
   background-color: #40E0D0;
   text-align: center;
+  height: 60px;
 }
 .articleObj{
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
   color: #445B50;
   padding: 15px;
+  margin-top: 7px;
   margin-bottom: 25px;
   margin-right: 300px;
-  background-color: #30FFD0;
+  background-color: #86FFFF;
+}
+.articleObj:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.9);
 }
 
 .sorting{
@@ -50,10 +56,7 @@
   padding-right: 15px;
   padding-top: 15px;
 }
-.new_article{
-  float: right;
-  margin-left: 100px;
-}
+
 .separator .separator_line {
     height: 30px;
     margin-right: 300px;
@@ -101,10 +104,14 @@
   float: right;
 }
 .user_articles{
-  background-color: #30FFD0;
-  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  background-color: #86FFFF;
+  margin-top: 70px;
   padding-bottom: 10px;
   width: 275px;
+}
+.user_articles:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.9);
 }
 .user_articles_title{
 }
@@ -129,6 +136,7 @@
   display: none;
 }
 .user_separator{
+
     border-bottom: 1px solid #239623;
 }
 .goto_article{
@@ -157,5 +165,21 @@
   text-align: center;
 }
 #Read{
-  margin-top: 130px;
+  margin-top: 50px;
+}
+.my_articles{
+  position: absolute;
+  margin-left: 350px;
+  font-size: x-large;
+  font-weight: bold;
+}
+.separator_articles{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 710px;
+  border-bottom: 1px solid #239623;
+}
+.all_articles{
+  font-size: x-large;
+  font-weight: bold;
 }

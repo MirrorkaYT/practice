@@ -11,7 +11,6 @@
 </p>
 
 <div class="user_articles_content">
-  <h2>My articles</h2>
   <div class="user_articles">
     <% current_user.articles.each do |article| %>
       <div class="user_articles_title">
@@ -20,11 +19,12 @@
     <% end %>
   </div>
 </div>
-<!-- <div class="new_article">
-  <%= link_to 'new', new_user_article_path(current_user.id), remote: true %>
+<span class="all_articles">Unread</span>
+<span class="my_articles">My articles</span>
+<br>
+<div class="separator_articles">
 </div>
- -->
-  <h2>Unread</h2>
+
 <span class="sorting">
   <%= render "sort" %>
 </span>
@@ -40,7 +40,9 @@
 <div id="formid">
 </div>
 
-
+  <div class="new_article">
+  <%= link_to 'new', new_user_article_path(current_user.id), remote: true %>
+</div>
   <div class="articles" id="Read">
   <div class="separator">
     

@@ -8,7 +8,7 @@
         <h4>Title:</h4>
       </div>
       <div class="title_content">
-        <a id="link" class="edits" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+        <a id="link" class="edits" data-type="text" data-xeditable="true" data-pk="article" data-model="article" data-name="title" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title" data-tpl="<input type='text' style='width: 180px; height: 30px;'>">
           <div id="title_text"><h5><%= article.title %></h5></div>
         </a>
       </div>
@@ -20,7 +20,7 @@
       </div>
       <div class="text_content">
       
-        <a id="link" class="edits" data-type="textarea" data-xeditable="true" data-pk="article" data-model="article" data-name="text" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title"><div id="text_text"><h5><%= article.text %></h5></div></a>
+        <a id="link" class="edits" data-type="textarea" data-xeditable="true" data-pk="article" data-model="article" data-name="text" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title" ><div id="text_text"><h5><%= article.text %></h5></div></a>
         
       </div>
     </div>
@@ -32,7 +32,7 @@
 
           <a data-xeditable="true" data-inputclass="prior" data-showbuttons="false" data-type="text" data-tpl="<input type='text' style='width: 75px' style='padding: 0px'>" data-pk="article" data-model="article" data-name="priority" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.priority %>
-          </a>|
+          </a>| <br>
         <th style="text-align:left">Due_date:</th>
           <a id="link" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
             <%= article.date || Date.today %>
