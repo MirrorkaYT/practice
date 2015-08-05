@@ -11,7 +11,12 @@
 </p>
 
 <div class="user_articles_content">
+
+
   <div class="user_articles">
+  <span class="my_articles">My articles</span>
+  <div class="separator_my_articles">
+  </div>
     <% current_user.articles.each do |article| %>
       <div class="user_articles_title">
         <%= render partial: 'userarticles', locals: {article: article, checked: ""} %>
@@ -20,7 +25,6 @@
   </div>
 </div>
 <span class="all_articles">Unread</span>
-<span class="my_articles">My articles</span>
 <br>
 <div class="separator_articles">
 </div>
