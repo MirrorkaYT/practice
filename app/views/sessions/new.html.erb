@@ -1,3 +1,6 @@
+<span class="recover">
+<%= link_to 'forgot your password?', recover_path %>
+</span>
 <h1>Log In</h1>
 
 <%= form_tag sessions_path do %>
@@ -10,9 +13,4 @@
     <%= password_field_tag :password %>
   </div>
   <div class='actions'><%= submit_tag 'log in' %></div>
-<% end %>
-
-<%= @users=User.all %>
-<%= @users.each do |user| %>
-  <% user.password %>
 <% end %>

@@ -209,3 +209,33 @@ input[type=submit] {
 input[type=submit]:hover{
   box-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
+#sticky-anchor{
+  margin-top: 60px;
+  float: right;
+}
+#sticky.stick {
+  .user_articles{
+  margin-top: 10px;
+}
+    position: fixed;
+    left: 50%;
+    top: 0%;
+    transform: translateX(29%);
+    z-index: 10000;
+}
+.alert {
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 150px;
+}
+input[type=email],
+input[type=text],
+input[type=password] {
+  width: 200px;
+}
+.notif{
+  display: none;
+}

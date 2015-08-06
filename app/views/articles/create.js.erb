@@ -1,6 +1,5 @@
 $('form').remove()
 $(".new_article").show()
-<%= binding.pry %>
 $("#Unread").append("<%= j render partial: 'article', locals: {article: @artIncompl.last(), checked: ""} %>")
 $(".user_articles_title").last().after("<%= j render partial: 'userarticles', locals: {article: current_user.articles.last()} %>")
 

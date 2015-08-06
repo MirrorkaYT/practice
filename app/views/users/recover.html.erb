@@ -1,0 +1,8 @@
+
+<%= form_tag do %>
+  <div class='field'>
+    <%= label_tag "Enter your email" %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class='actions'><%= submit_tag 'Send' %></div>
+<% end %>

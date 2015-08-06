@@ -1,9 +1,12 @@
 class UserMailer < ApplicationMailer
-  default :from => 'example@blog.com'
-
+  default from: "activebridge@gmail.com"
   def welcome_mail(user)
     @user=user
-    @url  = 'localhost:3000/users/login'
-    mail(:to => user.email, :subject => 'Welcome to My Awesome Site')
+    @url  = 'http://localhost:3000/session/new'
+    mail(:to => @user.email, :subject => 'Welcome to My Awesome Site')
+  end
+  def forgot(user)
+    @user=user
+    mail(:to => @user.email, :subject => 'Password recover')
   end
 end

@@ -1,29 +1,31 @@
 <div id= "content">
 
-
 <h1>Articles</h1>
-
 <p>
   <% if current_user %>
     <%= link_to 'New article', new_user_article_path(current_user.id) %>
   <% end %>
 </p>
-
-<div class="user_articles_content">
-
-
-  <div class="user_articles">
-  <span class="my_articles">My articles</span>
-  <div class="separator_my_articles">
-  </div>
     
-    <% current_user.articles.each do |article| %>
-      <div class="user_articles_title">
-        <%= render partial: 'userarticles', locals: {article: article, checked: ""} %>
+    <div class="user_articles_content">
+<div id="sticky-anchor"></div>
+    <div id="sticky">
+
+      <div class="user_articles">
+
+      <span class="my_articles">My articles
+    </span>|<%= will_paginate @user_articles %>
+        <div class="separator_my_articles">
+        </div>
+        
+        <% @user_articles.each do |article| %>
+          <div class="user_articles_title">
+            <%= render partial: 'userarticles', locals: {article: article, checked: ""} %>
+          </div>
+        <% end %>
+          </div>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
 <span class="all_articles">Unread</span>
 <br>
 <div class="separator_articles">

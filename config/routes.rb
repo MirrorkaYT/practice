@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   resources :users do
     get 'myarticles' => 'users#myarticles'
     get 'sort_author' => 'articles#sort_author'
+    get 'recover_pass' => 'users#pass_recover'
     resources :articles
     
   end
   get 'articles' => 'articles#index'
   resources :sessions
+  get 'recover' => 'users#recover'
+  post 'recover' => 'users#recover'
+  put 'recover' => 'users#update'
   get '*path' => 'articles#index'
-
 
     root 'welcom#index', as: 'home'
 
