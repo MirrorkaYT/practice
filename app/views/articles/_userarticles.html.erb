@@ -1,51 +1,40 @@
-
-<div class="user_articleObj">
-  <div id="user_Unreadd_<%= article.id %>" class="user_article">
-
-  <div class="user_preview">
-      <div class="user_preview_title">
-        <h4>Title:</h4>
-      </div>
-      <div class="user_preview_title_content">
-          <div id="user_preview_title_text"><h5><%= article.title %></h5></div>
-      </div>
-    <div class="hidden_article">
-    
-
-    <div class="user_text">
-      <div class="user_text_title">
-        <h4>Text:</h4>
-      </div>
-      <div class="user_text_content">
-        <div id="user_text_text"><h5><%= article.text %></h5></div>
-      </div>
-    </div>
-
-    <div class="user_article_info">
-        Author:
-         <%= User.find(article.user_id).nickname %>|
-        Priority:
-            <%= article.priority %>
-        
-        <th style="text-align:left">Due_date:</th>
-          <%= article.date || Date.today %>
-          <div class="user_editing">
-          <%= link_to 'Show', user_article_path(article.user_id, article) %>
-            <% if current_user && article.user_id == current_user.id %>
-              <%= link_to 'Edit', edit_user_article_path(current_user.id, article) %>
-                <%= link_to 'Del', user_article_path(current_user.id, article), remote: true ,
-                data: { confirm: 'are you sure?'}, method: :delete %>
+<% @user_articles.each do |article| %>
+  <div class="user_articleObj">
+    <div id="user_Unreadd_<%= article.id %>" class="user_article">
+      <div class="user_preview">
+        <div class="user_preview_title">
+          <h4>Title:</h4>
+        </div>
+        <div class="user_preview_title_content">
+            <div id="user_preview_title_text"><h5><%= article.title %></h5></div>
+        </div>
+        <div class="hidden_article">
+          <div class="user_text">
+            <div class="user_text_title">
+              <h4>Text:</h4>
+            </div>
+            <div class="user_text_content">
+              <div id="user_text_text"><h5><%= article.text %></h5></div>
+            </div>
+          </div>
+          <div class="user_article_info">
+            Author:<%= User.find(article.user_id).nickname %>|
+            Priority:<%= article.priority %>
+            Due_date:<%= article.date || Date.today %>
+            <div class="user_editing">
+              <%= link_to 'Show', user_article_path(article.user_id, article) %>
+                <% if current_user && article.user_id == current_user.id %>
+                  <%= link_to 'Edit', edit_user_article_path(current_user.id, article) %>
+                  <%= link_to 'Del', user_article_path(current_user.id, article), remote: true , data: { confirm: 'are you sure?'}, method: :delete %>
                 <% end %>
+            </div>
+            <div class="goto_article">
+              <a href="#goto_<%= article.id %>">GOTO</a>
+            </div>
           </div>
-          <div class="goto_article">
-            <a href="#goto_<%= article.id %>">GOTO</a>
-          </div>
-          
+        </div>
+      </div>
     </div>
-    </div>
-    
   </div>
-</div>
-
-</div>
-<div class="user_separator"></div>
+  <div class="user_separator"></div>
+<% end %>

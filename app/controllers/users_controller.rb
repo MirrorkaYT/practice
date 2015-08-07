@@ -12,12 +12,13 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.welcome_mail(@user).deliver_now
       redirect_to new_session_path
-    else 
+    else
       render 'new'
     end
   end
+
   def destroy
-    current_user.articles.each do |article| 
+    current_user.articles.each do |article|
       article.destroy
     end
     session[:user_id]=nil
@@ -26,11 +27,13 @@ class UsersController < ApplicationController
     current_user=nil
     redirect_to new_user_path
   end
+
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to new_session_path
   end
+
   def myarticles
   end
 
@@ -46,10 +49,10 @@ class UsersController < ApplicationController
 
   def pass_recover
     if User.exists?(params[:user_id])
-        @user=User.find(params[:user_id])
-      end
+      @user=User.find(params[:user_id])
+    end
   end
-  
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :nickname)

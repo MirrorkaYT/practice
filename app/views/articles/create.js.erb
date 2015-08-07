@@ -1,6 +1,6 @@
 $('form').remove()
 $(".new_article").show()
 $("#Unread").append("<%= j render partial: 'article', locals: {article: @artIncompl.last(), checked: ""} %>")
-$(".user_articles_title").last().after("<%= j render partial: 'userarticles', locals: {article: current_user.articles.last()} %>")
-
+if (<%= @user_articles.current_page %><3)
+  $(".user_articles_title").html("<%= j render 'userarticles' %>")
 setXeditable()

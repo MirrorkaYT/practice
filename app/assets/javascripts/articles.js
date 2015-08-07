@@ -34,14 +34,14 @@ function setArrowDirection(dir, sort ){
 }
 
 function completet(arg){
+  
   var nam = document.getElementById("check_"+arg)
       id = $(nam).attr('data-id')
       value = $(nam).is(":checked")
       path = $(nam).attr('data-path')
       console.log($(nam).attr('data-id'))
-      console.log($(nam).closest(".articleObj").remove())
-      html=$(nam).closest(".articleObj")
-
+      console.log($(nam).closest(".article").remove())
+      html=$(nam).closest(".article")
        if(value)
          $('#Read').last().after(html)
        else
@@ -57,18 +57,21 @@ function completet(arg){
     }
 setXeditable()
 
-function sticky_relocate() {
-    var window_top = $(window).scrollTop();
-    var div_top = $('#sticky-anchor').offset().top;
-    if (window_top > div_top) {
-        $('#sticky').addClass('stick');
-    } else {
-        $('#sticky').removeClass('stick');
-    }
-}
+//
+//----UP-IN-THE-AIR---
+//
+// function sticky_relocate() {
+//     var window_top = $(window).scrollTop();
+//     var div_top = $('#sticky-anchor').offset().top;
+//     if (window_top > div_top) {
+//         $('#sticky').addClass('stick');
+//     } else {
+//         $('#sticky').removeClass('stick');
+//     }
+// }
 
-$(function () {
-    $(window).scroll(sticky_relocate);
-    sticky_relocate
-});
+// $(function () {
+//     $(window).scroll(sticky_relocate);
+//     sticky_relocate
+// });
 

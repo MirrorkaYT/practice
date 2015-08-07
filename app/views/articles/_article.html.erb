@@ -1,8 +1,6 @@
 <a name="goto_<%= article.id %>"></a>
-<div class="articleObj">
-
-  <div id="Unreadd_<%= article.id %>" class="article">
-
+<div class="article">
+  <div id="article_<%= article.id %>" >
     <div class="title">
       <div class="title_title">
         <h4>Title:</h4>
@@ -13,41 +11,32 @@
         </a>
       </div>
     </div>
-
     <div class="text">
       <div class="text_title">
         <h4>Text:</h4>
       </div>
       <div class="text_content">
-      
         <a id="link" class="edits" data-type="textarea" data-xeditable="true" data-pk="article" data-model="article" data-name="text" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title" ><div id="text_text"><h5><%= article.text %></h5></div></a>
-        
       </div>
     </div>
-
     <div class="article_info">
-        Author:
-         <%= User.find(article.user_id).nickname %>|
-        Priority:
-
-          <a data-xeditable="true" data-inputclass="prior" data-showbuttons="false" data-type="text" data-tpl="<input type='text' style='width: 75px' style='padding: 0px'>" data-pk="article" data-model="article" data-name="priority" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
-            <%= article.priority %>
-          </a>| <br>
-        <th style="text-align:left">Due_date:</th>
-          <a id="link" class="datepick" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
-            <%= article.date || Date.today %>
-          </a>
-          <div class="editing">
-          <%= link_to 'Show', user_article_path(article.user_id, article) %>
-            <% if current_user && article.user_id == current_user.id %>
-              <%= link_to 'Edit', edit_user_article_path(current_user.id, article) %>
-                <%= link_to 'Del', user_article_path(current_user.id, article), remote: true ,
-                data: { confirm: 'are you sure?'}, method: :delete %>
-                <% end %>
-        </div>
-
-          
+      Author: <%= User.find(article.user_id).nickname %>|
+      Priority:
+      <a data-xeditable="true" data-inputclass="prior" data-showbuttons="false" data-type="text" data-tpl="<input type='text' style='width: 75px' style='padding: 0px'>" data-pk="article" data-model="article" data-name="priority" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+        <%= article.priority %>
+      </a>| <br>
+      Due_date:
+      <a id="link" class="datepick" data-type="date"  data-inputclass="some_class"  data-xeditable="true" data-pk="article" data-model="article" data-name="date" data-url="/users/<%= current_user.id %>/articles/<%= article.id %>" data-title="Enter title">
+        <%= article.date || Date.today %>
+      </a>
+      <div class="editing">
+        <%= link_to 'Show', user_article_path(article.user_id, article) %>
+        <% if current_user && article.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_user_article_path(current_user.id, article) %>
+          <%= link_to 'Del', user_article_path(current_user.id, article), remote: true , data: { confirm: 'are you sure?'}, method: :delete %>
+        <% end %>
+      </div>
     </div>
-        <input type="checkbox" autocomplete="off" id="check_<%= article.id %>" onclick="completet(<%= article.id %>)" value="<%= article.completed %>" data-path='<%=user_article_path(current_user.id, article) %>'  data-id='<%= article.id%>' <%= checked %>>
+    <input type="checkbox" autocomplete="off" id="check_<%= article.id %>" onclick="completet(<%= article.id %>)" value="<%= article.completed %>" data-path='<%=user_article_path(current_user.id, article) %>'  data-id='<%= article.id%>' <%= checked %>>
   </div>
 </div>

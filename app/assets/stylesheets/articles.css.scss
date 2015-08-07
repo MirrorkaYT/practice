@@ -9,7 +9,7 @@
   display: none;
 }
 
-.articleObj:hover{
+.article:hover{
   .editing{
     display: block;
   }
@@ -38,7 +38,7 @@
   text-align: center;
   height: 60px;
 }
-.articleObj{
+.article{
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
   color: #445B50;
   padding: 15px;
@@ -47,7 +47,7 @@
   margin-right: 300px;
   background-color: #86FFFF;
 }
-.articleObj:hover{
+.article:hover{
   box-shadow: 0 0 10px rgba(0,0,0,0.9);
 }
 
@@ -67,29 +67,6 @@
 .separator {
   float: right;
 }
-// .user_articles_content{
-//   margin-right: auto;
-//   float: right;
-//   padding-right: 20%;
-// }
-// .user_articles{
-//   background-color: #30FFD0;
-
-//   padding-bottom: 20px;
-//   margin-top: 20px;
-//   padding-top: 10px;
-//   padding-left: 10px;
-//   padding-right: 10px;
-//   margin-left: auto;
-//   width: 200%;
-// }
-// .user_articles_title{
-//   margin-top: 10px;
-//   padding-top: 5px;
-//   padding-bottom: 5px;
-//   padding-left: 15px;
-//   background-color: #2EFF23;
-// }
 .user_articleObj{
   // background-color: #00F1D4;
   box-shadow: 0 0 5px rgba(0,0,0,0.7);
@@ -113,15 +90,13 @@
 .user_articles{
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
   background-color: #86FFFF;
-  margin-top: 70px;
+  margin-top: 71px;
   padding-bottom: 10px;
   padding-top: 10px;
   padding-left: 10px;
   width: 275px;
 }
-// .user_articles:hover{
-//   box-shadow: 0 0 10px rgba(0,0,0,0.9);
-// }
+
 .user_articles_title{
 }
 .user_preview_title_content{
@@ -204,25 +179,24 @@ input[type=submit] {
     font-family: Arial;
     background: #7DFFFF;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  
 }
 input[type=submit]:hover{
   box-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
-#sticky-anchor{
-  margin-top: 60px;
-  float: right;
-}
-#sticky.stick {
-  .user_articles{
-  margin-top: 10px;
-}
-    position: fixed;
-    left: 50%;
-    top: 0%;
-    transform: translateX(29%);
-    z-index: 10000;
-}
+// #sticky-anchor{
+//   margin-top: 60px;
+//   float: right;
+// }
+// #sticky.stick {
+//   .user_articles{
+//   margin-top: 10px;
+// }
+//     position: fixed;
+//     left: 50%;
+//     top: 0%;
+//     transform: translateX(29%);
+//     z-index: 10000;
+// }
 .alert {
   color: red;
   border: 1px solid red;
@@ -231,6 +205,16 @@ input[type=submit]:hover{
   border-radius: 5px;
   margin-right: 150px;
 }
+.notice{
+  text-align: center;
+  border-radius: 5px;
+  height: 30px;
+  width: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  margin-right: 350px;
+  background-color: #9BFFFF;
+  padding-top: 4px;
+}
 input[type=email],
 input[type=text],
 input[type=password] {
@@ -238,4 +222,13 @@ input[type=password] {
 }
 .notif{
   display: none;
+}
+.recover_find_user{
+  padding-top: 25px;
+}
+.recover_reset_pass{
+  padding-top: 25px;
+}
+.show{
+  padding-top: 25px;
 }

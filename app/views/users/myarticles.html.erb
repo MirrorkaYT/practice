@@ -1,13 +1,11 @@
 <p>
   <%= link_to 'Back', user_articles_path(current_user.id) %>
 </p>
-
 <h1>My Articles</h1>
-
 <p>
   <%= link_to 'New article', new_user_article_path %>
 </p>
-  <% current_user.articles.each do |article| %>
-    <%= render partial: 'articles/article', locals: {article: article, checked: ""} %>
-  <% end %>
+<% current_user.articles.each do |article| %>
+  <%= render partial: 'articles/article', locals: {article: article, checked: ""} %>
+<% end %>
 

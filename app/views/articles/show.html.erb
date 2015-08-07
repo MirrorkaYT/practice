@@ -1,8 +1,7 @@
-<%= render partial: 'article', locals: {article: @article, checked: ""} %>
-
-<%= link_to 'Back', user_articles_path %>
-
-<% if current_user %>
-  <%= link_to 'Edit', edit_user_article_path(current_user.id, @article) %>
-<% end %>
-  
+<div class="show">
+  <%= render partial: 'article', locals: {article: @article, checked: ""} %>
+  <%= link_to 'Back', user_articles_path %>
+  <% if current_user %>
+    <%= link_to 'Edit', edit_user_article_path(current_user.id, @article) %>
+  <% end %>
+</div>

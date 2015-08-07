@@ -1,5 +1,5 @@
 <%= form_for @article, url: user_articles_path(current_user.id) do |f| %>
- <% if @article.errors.any? %>
+  <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@article.errors.count, "error") %> prohibited
@@ -12,26 +12,19 @@
       </ul>
     </div>
   <% end %>
-
   <p>
     <div><%= f.label :title %></div>
     <%= f.text_field :title %>
   </p>
- 
   <p>
     <div><%= f.label :text %></div>
     <%= f.text_area :text %>
   </p>
   <p>
-      <%= f.hidden_field :user_id, value: params[:user_id] %>
-
+    <%= f.hidden_field :user_id, value: params[:user_id] %>
   </p>
- 
   <p>
     <%= f.submit %>
   </p>
 <% end %>
 <%= link_to 'Back', user_articles_path %>
-  
-
-
