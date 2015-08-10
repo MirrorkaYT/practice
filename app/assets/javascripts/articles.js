@@ -1,6 +1,6 @@
 var setXeditable;
 
-$.fn.editable.defaults.mode = 'inline';
+$.fn.editable.defaults.mode = 'popup';
 
 setXeditable = function() {
   return $("[data-xeditable=true]").each(function() {

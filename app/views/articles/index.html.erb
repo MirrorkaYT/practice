@@ -13,7 +13,9 @@
         </span><!-- |<%= will_paginate @user_articles %> -->
         <div class="separator_my_articles"></div>
         <div class="user_articles_title" id="userarticles">
-          <%= render 'userarticles' %>
+          <% @user_articles.each do |article| %>
+            <%= render partial: 'userarticles', locals: { article: article } %>
+          <% end %>
         </div>
       </div>
     </div>

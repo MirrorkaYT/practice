@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @user_articles = current_user.articles.paginate(:per_page => 3, :page => params[:page])
-    @artCompl=Article.where(completed: true).order("priority" + ' ' + "asc")
+    @artCompl = Article.where(completed: true).order("priority" + ' ' + "asc")
     @artIncompl=Article.where(completed: false).order(sort_column + ' ' + sort_direction)
   end
 
@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
 
   private
     def log_in_confirmation
-      if current_user==nil
+      unless current_user
         redirect_to new_user_path, notice: "register please!"
       end
     end

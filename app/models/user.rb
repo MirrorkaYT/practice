@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :articles
+	has_many :articles, dependend: :destroy
 	has_secure_password
 
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
   validates :password,
             length: {within: 6..40}, on: :create
   validates_uniqueness_of :email, :nickname
+
+  after_create :send_invite_email
+
+  private
+
+  def send_invite_email
+    UserMailer.welcome_mail(self).deliver_now
+  end
 end

@@ -6,9 +6,7 @@
   <body>
     <h1>follow next link to create a new password</h1>
     <p>
-      <%= @user.id %>
       <a href="http://localhost:3000/users/<%= @user.id %>/recover_pass">link</a>
-      <%= link_to 'recover', 'http://localhost:3000/recover_pass' %>
     </p>
   </body>
 </html>
