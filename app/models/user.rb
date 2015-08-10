@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-	has_many :articles, dependend: :destroy
+	has_many :articles, dependent: :destroy
 	has_secure_password
 
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :nickname, presence: true,
-            length: {maximum: 20}
+            length: {within: 6..20}
   validates :email, presence: true,
             format: {with: EMAIL_REGEX}
   validates :password,

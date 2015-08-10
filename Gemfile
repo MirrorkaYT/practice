@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'factory_girl'
 
 end
 group :test do
@@ -55,6 +56,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 gem 'devise'
